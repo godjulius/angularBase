@@ -1,28 +1,46 @@
-import {Component, OnInit, signal} from '@angular/core';
+import {Component, OnInit} from '@angular/core';
+import {FormBuilder, FormGroup, Validators, ReactiveFormsModule} from '@angular/forms';
 import {MessageService} from 'primeng/api';
-import {FormsModule} from '@angular/forms';
 import {ButtonModule} from 'primeng/button';
 import {InputTextModule} from 'primeng/inputtext';
-import {LoginModel} from '../auth.model';
+import {RouterModule} from '@angular/router';
+import {NgClass} from '@angular/common';
 
 @Component({
-  selector: 'app-login',
-  standalone: true,
-    imports: [FormsModule, ButtonModule, InputTextModule],
-  templateUrl: './login.component.html',
-  styleUrl: './login.component.css',
+    selector: 'app-login',
+    standalone: true,
+    imports: [ReactiveFormsModule, ButtonModule, InputTextModule, RouterModule, NgClass],
+    templateUrl: './login.component.html',
+    styleUrl: './login.component.css',
     providers: [MessageService]
 })
-export class LoginComponent implements OnInit{
-    account = signal<LoginModel>({
-        email: '',
-        password: ''
-    });
+export class LoginComponent implements OnInit {
+    loginForm!: FormGroup;
+
+    constructor(private fb: FormBuilder) {}
 
     ngOnInit() {
+        this.loginForm = this.fb.group({
+            email: ['', [Validators.required, Validators.email]],
+            password: ['', Validators.required]
+        });
     }
 
     login() {
-        console.log(this.account());
+        if (this.loginForm.valid) {
+            console.log(this.loginForm.value);
+        } else {
+            console.log('Form is invalid');
+        }
+    }
+
+    isEmailInvalid(): boolean {
+        const emailControl = this.loginForm.get('email');
+        return emailControl!.invalid && (emailControl!.dirty || emailControl!.touched);
+    }
+
+    isPasswordInvalid(): boolean {
+        const passwordControl = this.loginForm.get('password');
+        return passwordControl!.invalid && (passwordControl!.dirty || passwordControl!.touched);
     }
 }
