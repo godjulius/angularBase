@@ -4,20 +4,24 @@ import {MessageService} from 'primeng/api';
 import {ButtonModule} from 'primeng/button';
 import {InputTextModule} from 'primeng/inputtext';
 import {RouterModule} from '@angular/router';
-import {NgClass} from '@angular/common';
+import {CommonModule} from '@angular/common';
+import {BaseComponent} from '../../../core/base.component';
+import {TranslatePipe} from '@ngx-translate/core';
 
 @Component({
     selector: 'app-login',
     standalone: true,
-    imports: [ReactiveFormsModule, ButtonModule, InputTextModule, RouterModule, NgClass],
+    imports: [CommonModule, ReactiveFormsModule, ButtonModule, InputTextModule, RouterModule, TranslatePipe],
     templateUrl: './login.component.html',
     styleUrl: './login.component.css',
     providers: [MessageService]
 })
-export class LoginComponent implements OnInit {
+export class LoginComponent extends BaseComponent implements OnInit {
     loginForm!: FormGroup;
 
-    constructor(private fb: FormBuilder) {}
+    constructor(private fb: FormBuilder) {
+        super();
+    }
 
     ngOnInit() {
         this.loginForm = this.fb.group({
