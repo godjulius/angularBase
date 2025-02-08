@@ -12,3 +12,8 @@ body {
   font-size: 1rem;
   line-height: 1.5;
 }
+
+
+body {
+    background-color: var(--p-background-500);
+}

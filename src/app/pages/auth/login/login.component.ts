@@ -7,11 +7,12 @@ import {RouterModule} from '@angular/router';
 import {CommonModule} from '@angular/common';
 import {BaseComponent} from '../../../core/base.component';
 import {TranslatePipe} from '@ngx-translate/core';
+import {Message} from 'primeng/message';
 
 @Component({
     selector: 'app-login',
     standalone: true,
-    imports: [CommonModule, ReactiveFormsModule, ButtonModule, InputTextModule, RouterModule, TranslatePipe],
+    imports: [CommonModule, ReactiveFormsModule, ButtonModule, InputTextModule, RouterModule, TranslatePipe, Message],
     templateUrl: './login.component.html',
     styleUrl: './login.component.css',
     providers: [MessageService]

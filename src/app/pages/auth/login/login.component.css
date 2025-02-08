@@ -1,3 +1,8 @@
 .log-in-container {
     background-color: inherit;
 }
+
+.error-message {
+    left: 0;
+    bottom: -20px
+}

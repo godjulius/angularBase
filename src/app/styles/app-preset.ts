@@ -1,6 +1,7 @@
 //Preset the theme with your customizations for the PrimeNG components
 import { definePreset } from '@primeng/themes';
 import Lara from '@primeng/themes/lara';
+import Aura from '@primeng/themes/aura';
 
 export const appPreset = definePreset(Lara, {
     //Your customizations, see the following sections for examples
@@ -16,7 +17,7 @@ export const appPreset = definePreset(Lara, {
             700: '{indigo.700}',
             800: '{indigo.800}',
             900: '{indigo.900}',
-            950: '{indigo.950}'
+            950: '{indigo.950}',
         },
         secondary: {
             50: '{red.50}',
@@ -31,8 +32,17 @@ export const appPreset = definePreset(Lara, {
             900: '{red.900}',
             950: '{red.950}'
         },
+        background: {
+            500: '{slate.100}',
+        },
         colorScheme: {
-
+            light: {
+            },
+            dark: {
+                background: {
+                    500: '{slate.700}',
+                },
+            }
         }
     }
 });
