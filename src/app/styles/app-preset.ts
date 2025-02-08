@@ -578,20 +578,20 @@ export const MyPreset = definePreset(Lara, {
             dark: {
                 surface: {
                     0: "#ffffff",
-                    50: "#f8f8f8",
-                    100: "#dddddf",
-                    200: "#c2c2c6",
-                    300: "#a7a7ad",
-                    400: "#8c8c93",
-                    500: "#71717a",
-                    600: "#606068",
-                    700: "#4f4f55",
-                    800: "#3e3e43",
-                    900: "#2d2d31",
-                    950: "#1c1c1f"
+                    50: "#f9f9fb",
+                    100: "#e1e1ec",
+                    200: "#cacadc",
+                    300: "#b3b3cd",
+                    400: "#9b9bbd",
+                    500: "#8484ae",
+                    600: "#707094",
+                    700: "#5c5c7a",
+                    800: "#494960",
+                    900: "#353546",
+                    950: "#21212c"
                 },
                 background: {
-                    500: '{neutral.950}',
+                    500: '{surface.950}',
                 },
                 primary: {
                     color: "{primary.400}",
