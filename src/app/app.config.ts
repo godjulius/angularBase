@@ -7,7 +7,7 @@ import {provideAnimationsAsync} from '@angular/platform-browser/animations/async
 import {providePrimeNG} from 'primeng/config';
 import {translateProviders} from './i18n.config';
 import {provideHttpClient, withInterceptorsFromDi} from '@angular/common/http';
-import {appPreset} from './styles/app-preset';
+import {MyPreset} from './styles/app-preset';
 
 export const appConfig: ApplicationConfig = {
     providers: [
@@ -18,7 +18,7 @@ export const appConfig: ApplicationConfig = {
         provideHttpClient(withInterceptorsFromDi()),
         providePrimeNG({
             theme: {
-                preset: appPreset,
+                preset: MyPreset,
                 options: {
                     prefix: 'p',
                     // darkModeSelector: '.my-app-dark',
